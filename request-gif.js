@@ -7,10 +7,17 @@ var ajaxson5 = new Vue({
             errorMessage: null,
             loading: false,
             imgSrc: null,
+            validate: ""
         };
     },
     methods: {
         fetchGif: function() {
+            if (this.validate !== "5") {
+                this.errorMessage = "Begone, Peasant!";
+                imgSrc = null;
+                return
+            }
+            this.errorMessage = null;
             var searchQuery = this.tagValue;
             var api_key = "dc6zaTOxFJmzC";
             var tag = "Jackson 5 " + searchQuery;
